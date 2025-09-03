@@ -5,3 +5,5 @@ accelerate
 protobuf
 sentencepiece
 tqdm
+hf_xet
+huggingface_hub
