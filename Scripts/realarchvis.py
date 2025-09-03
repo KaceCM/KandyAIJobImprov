@@ -44,7 +44,7 @@ def load_sdxl_realarchvis():
     if hasattr(pipe, "enable_vae_tiling"):
         pipe.enable_vae_tiling()
 
-    return pipe
+    return pipe, controlnet, vae
 
 def apply_sdxl(pipe, prompt, negative_prompt, depth_rgb_1024, steps=28, guidance=7.0, cn_scale=0.8, seed=42):
     generator = torch.Generator(device=device).manual_seed(seed)
@@ -61,37 +61,42 @@ def apply_sdxl(pipe, prompt, negative_prompt, depth_rgb_1024, steps=28, guidance
     return image
 
 def main_sdxl_realarchvis_depthonly(image_list, verbose):
-    pipe = load_sdxl_realarchvis()
+    pipe, controlnet, vae = load_sdxl_realarchvis()
     room_styles = ['scandinavian','minimalist','contemporary','parisian','industrial','rustic','japanese','art_deco','bohemian','coastal']
 
-    for item in tqdm(image_list):
-        for style in room_styles:
-            try:
-                t0 = time()
-                name = item["name"]
-                depth = item["img"]
 
-                prompt = verbose["generation"][style]["living_room"]["positive"]
-                negative_prompt = verbose["generation"][style]["living_room"]["negative"]
-
-                orig_w, orig_h = depth.size
-                depth_rgb = to_rgb_depth(depth, size=1024)
-
-                out = apply_sdxl(pipe, prompt, negative_prompt, depth_rgb)
-                out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
-
-                out.save(os.path.join(OUTPUT_DIR, f"realarchvis_{name}_{style}.png"))
-                # out_resized.save(os.path.join(OUTPUT_DIR, f"realarchvis_{name}_{style}_resized.png"))
-                write_logs(f"[SDXL-RealArchvis] {name} ({style}) in {time()-t0:.2f}s")
-            except Exception as e:
-                tb = traceback.format_exc()
-                print(f"[SDXL-RealArchvis ERR] {name}/{style}: {e}")
-                write_logs(f"[SDXL-RealArchvis ERR] {name}/{style}: {e}\n{tb}")
-                continue
-
-if __name__ == "__main__":
     try:
-        _ = load_sdxl_realarchvis()
-        print("Pipeline SDXL+ControlNet (RealArchvis) chargé OK.")
+        for item in tqdm(image_list):
+            for style in room_styles:
+                try:
+                    t0 = time()
+                    name = item["name"]
+                    depth = item["img"]
+
+                    prompt = verbose["generation"][style]["living_room"]["positive"]
+                    negative_prompt = verbose["generation"][style]["living_room"]["negative"]
+
+                    # orig_w, orig_h = depth.size
+                    depth_rgb = to_rgb_depth(depth, size=1024)
+
+                    out = apply_sdxl(pipe, prompt, negative_prompt, depth_rgb)
+                    # out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
+
+                    out.save(os.path.join(OUTPUT_DIR, f"realarchvis_{name}_{style}.png"))
+                    # out_resized.save(os.path.join(OUTPUT_DIR, f"realarchvis_{name}_{style}_resized.png"))
+                    write_logs(f"[SDXL-RealArchvis] {name} ({style}) in {time()-t0:.2f}s")
+                except Exception as e:
+                    tb = traceback.format_exc()
+                    print(f"[SDXL-RealArchvis ERR] {name}/{style}: {e}")
+                    write_logs(f"[SDXL-RealArchvis ERR] {name}/{style}: {e}\n{tb}")
+                    continue
+        del pipe
+        del controlnet
+        del vae
     except Exception as e:
-        print("Erreur de chargement:", e)
+        tb = traceback.format_exc()
+        print(f"[SDXL-RealArchvis ERR] General: {e}")
+        write_logs(f"[SDXL-RealArchvis ERR] General: {e}\n{tb}")
+    del pipe
+    del controlnet
+    del vae

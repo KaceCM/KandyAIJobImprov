@@ -31,7 +31,7 @@ def load_sdxl():
     ).to(device)
     if hasattr(pipe, "enable_vae_slicing"):
         pipe.enable_vae_slicing()
-    return pipe
+    return pipe, controlnet, vae
 
 def apply_sdxl(pipe, prompt, negative_prompt, depth_rgb_1024, steps=28, guidance=7.0, cn_scale=0.8, seed=42):
     generator = torch.Generator(device=device).manual_seed(seed)
@@ -48,29 +48,42 @@ def apply_sdxl(pipe, prompt, negative_prompt, depth_rgb_1024, steps=28, guidance
     return image
 
 def main_sdxl_depthonly(image_list, verbose):
-    pipe = load_sdxl()
+    pipe, controlnet, vae = load_sdxl()
     room_styles = ['scandinavian','minimalist','contemporary','parisian','industrial','rustic','japanese','art_deco','bohemian','coastal']
-    for item in tqdm(image_list):
-        for style in room_styles:
-            try:
-                t0 = time()
-                name = item["name"]
-                depth = item["img"]
 
-                prompt = verbose["generation"][style]["living_room"]["positive"]
-                negative_prompt = verbose["generation"][style]["living_room"]["negative"]
+    try:
+        for item in tqdm(image_list):
+            for style in room_styles:
+                try:
+                    t0 = time()
+                    name = item["name"]
+                    depth = item["img"]
 
-                orig_w, orig_h = depth.size
-                depth_rgb = to_rgb_depth(depth, size=1024)
+                    prompt = verbose["generation"][style]["living_room"]["positive"]
+                    negative_prompt = verbose["generation"][style]["living_room"]["negative"]
 
-                out = apply_sdxl(pipe, prompt, negative_prompt, depth_rgb)
-                out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
+                    # orig_w, orig_h = depth.size
+                    depth_rgb = to_rgb_depth(depth, size=1024)
 
-                out.save(os.path.join(OUTPUT_DIR, f"sdxl_{name}_{style}.png"))
-                # out_resized.save(os.path.join(OUTPUT_DIR, f"sdxl_{name}_{style}_resized.png"))
-                write_logs(f"[SDXL] {name} ({style}) in {time()-t0:.2f}s")
-            except Exception as e:
-                tb = traceback.format_exc()
-                print(f"[SDXL ERR] {name}/{style}: {e}")
-                write_logs(f"[SDXL ERR] {name}/{style}: {e}\n{tb}")
-                continue
+                    out = apply_sdxl(pipe, prompt, negative_prompt, depth_rgb)
+                    # out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
+
+                    out.save(os.path.join(OUTPUT_DIR, f"sdxl_{name}_{style}.png"))
+                    # out_resized.save(os.path.join(OUTPUT_DIR, f"sdxl_{name}_{style}_resized.png"))
+                    write_logs(f"[SDXL] {name} ({style}) in {time()-t0:.2f}s")
+                except Exception as e:
+                    tb = traceback.format_exc()
+                    print(f"[SDXL ERR] {name}/{style}: {e}")
+                    write_logs(f"[SDXL ERR] {name}/{style}: {e}\n{tb}")
+                    continue
+        del pipe
+        del controlnet
+        del vae
+    except Exception as e:
+        tb = traceback.format_exc()
+        print(f"[SDXL ERR] General: {e}")
+        write_logs(f"[SDXL ERR] General: {e}\n{tb}")
+    del pipe
+    del controlnet
+    del vae
+    
