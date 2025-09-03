@@ -63,7 +63,7 @@ def main_sd35_depthonly(image_list, verbose):
                 out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
 
                 out.save(os.path.join(OUTPUT_DIR, f"sd35_{name}_{style}.png"))
-                out_resized.save(os.path.join(OUTPUT_DIR, f"sd35_{name}_{style}_resized.png"))
+                # out_resized.save(os.path.join(OUTPUT_DIR, f"sd35_{name}_{style}_resized.png"))
                 write_logs(f"[SD3.5] {name} ({style}) in {time()-t0:.2f}s")
             except Exception as e:
                 tb = traceback.format_exc()

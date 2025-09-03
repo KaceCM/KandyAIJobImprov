@@ -66,7 +66,7 @@ def main_flux_depthonly(image_list, verbose):
                 out_resized = out.resize((orig_w, orig_h), Image.LANCZOS)
 
                 out.save(os.path.join(OUTPUT_DIR, f"flux1d_{name}_{style}.png"))
-                out_resized.save(os.path.join(OUTPUT_DIR, f"flux1d_{name}_{style}_resized.png"))
+                # out_resized.save(os.path.join(OUTPUT_DIR, f"flux1d_{name}_{style}_resized.png"))
                 write_logs(f"[FLUX] {name} ({style}) in {time()-t0:.2f}s")
             except Exception as e:
                 tb = traceback.format_exc()
