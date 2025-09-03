@@ -1,0 +1,7 @@
+python-dotenv
+transformers
+diffusers
+accelerate
+protobuf
+sentencepiece
+tqdm

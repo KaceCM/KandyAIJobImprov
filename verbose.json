@@ -1,0 +1,197 @@
+{
+    "utils": {
+        "quality_booster": "High resolution, 2K, 4K, 8K, clear, good lighting, detailed, extremely detailed, sharp focus, intricate, beautiful, realistic+++, complementary colors, high quality, hyper detailed, masterpiece, best quality, artstation, stunning"
+    },
+    "generation": {
+        "scandinavian": {
+            "label_fr": "Scandinave",
+            "living_room": {
+                "positive": "Scandinavian living room, smooth matte painted plaster walls (eggshell), light oak wide-plank floor (subtle grain, matte), linen upholstery, brushed black steel accents, neutral daylight ~5600K from windows, soft bounced light, realistic global illumination, contact shadows, photorealistic, color palette: warm white (RAL 9010), light oak, muted sage accents, charcoal details",
+                "negative": "Human, people, face, unrealistic, dull colors, low quality, bad lighting, unnatural, speckled, granular, noise, stippled, roughcast, gritty, pitted, film grain, oversharpened, watercolor wash, text, watermark, warped lines, bent frames, distorted perspective, extra furniture"
+            },
+            "bedroom": {
+                "positive": "Scandinavian bedroom, matte white plaster walls, pale oak floor, linen bedding, wool throw, light wood nightstands, slim black fixtures, soft daylight, gentle occlusion, photorealistic, palette: warm white, pale oak, muted sage",
+                "negative": "Human, people, face, unrealistic, dull colors, low quality, bad lighting, unnatural, speckled, granular, noisy texture, heavy patterns, text, watermark, warped lines"
+            },
+            "kitchen": {
+                "positive": "Scandinavian kitchen, flat-panel light oak cabinetry, white quartz worktop, integrated appliances, matte finishes, neutral daylight, under-cabinet bounce, photorealistic, palette: warm white, light oak, black accents",
+                "negative": "Human, people, face, unrealistic, harsh gloss, plastic look, noisy textures, clutter, bad lighting, text, watermark, warped lines"
+            },
+            "bathroom": {
+                "positive": "Scandinavian bathroom, matte white wall tile, light oak vanity, satin nickel fixtures, frosted glass, neutral daylight, soft reflections, photorealistic, palette: warm white, light oak",
+                "negative": "Human, people, face, unrealistic, plastic shine, heavy grain, speckled, low quality, bad lighting, text, watermark, warped lines"
+            }
+        },
+        "minimalist": {
+            "label_fr": "Minimaliste",
+            "living_room": {
+                "positive": "Minimalist living room, smooth matte plaster walls, pale ash wood or microcement floor (matte), low-profile furniture, hidden storage, thin black profiles, neutral daylight, soft ambient occlusion, photorealistic, palette: warm white, pale ash, graphite accent",
+                "negative": "Human, people, face, cluttered, busy patterns, overdecorated, unrealistic, noisy texture, film grain, oversharpened, dull lighting, text, watermark, warped lines"
+            },
+            "bedroom": {
+                "positive": "Minimalist bedroom, matte white walls, pale wood bed platform, linen bedding, single graphite accent, neutral daylight, soft bounced light, photorealistic",
+                "negative": "Human, people, face, clutter, excessive props, noisy textures, plastic gloss, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Minimalist kitchen, handleless matte white cabinets, integrated appliances, white or light gray quartz, subtle shadows, neutral daylight, photorealistic",
+                "negative": "Human, people, face, busy handles, high gloss, cluttered countertop, noisy textures, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Minimalist bathroom, microcement or large-format porcelain (matte), frameless glass, black or stainless fixtures, soft daylight, clean reflections, photorealistic",
+                "negative": "Human, people, face, pattern overload, plastic look, speckled texture, bad lighting, text, watermark"
+            }
+        },
+        "contemporary": {
+            "label_fr": "Contemporain",
+            "living_room": {
+                "positive": "Contemporary living room, clean lines, neutral base with strong contrast, low-profile sofa, mixed materials (stone, wood, metal), curated art, directional and bounced daylight, photorealistic",
+                "negative": "Human, people, face, dated, overly ornate, low quality, noisy texture, oversharpened, bad lighting, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Contemporary bedroom, matte painted walls, upholstered headboard, warm wood accents, subtle metal details, layered lighting, photorealistic",
+                "negative": "Human, people, face, gaudy decor, plastic shine, excessive grain, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Contemporary kitchen, flat-panel cabinets, stone island, integrated lighting (cove/under-cabinet), balanced contrast, photorealistic",
+                "negative": "Human, people, face, overly glossy, noisy textures, clutter, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Contemporary bathroom, large-format porcelain tile, floating vanity, brushed metal fixtures, soft daylight with controlled highlights, photorealistic",
+                "negative": "Human, people, face, busy mosaics, grainy surfaces, plastic look, text, watermark"
+            }
+        },
+        "parisian": {
+            "label_fr": "Parisien",
+            "living_room": {
+                "positive": "Parisian Haussmann living room, wall mouldings, herringbone oak parquet, marble fireplace, brass accents, linen curtains, warm daylight, soft bounced light, photorealistic",
+                "negative": "Human, people, face, baroque excess, kitsch, overaged grime, noisy texture, warped lines, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Parisian bedroom, moulded walls, chevron oak floor, linen bedding, cane or velvet accent chair, warm daylight, photorealistic",
+                "negative": "Human, people, face, plastic shine, harsh gloss, noisy textures, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Parisian kitchen, shaker or slim-profile cabinetry, marble or quartz worktop, brass hardware, tiled backsplash, warm daylight, photorealistic",
+                "negative": "Human, people, face, excessive ornament, noisy texture, warped lines, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Parisian bathroom, marble or terrazzo details, brass fixtures, classic forms with modern simplicity, soft daylight, photorealistic",
+                "negative": "Human, people, face, overly glossy plastic, heavy grain, text, watermark"
+            }
+        },
+        "industrial": {
+            "label_fr": "Industriel",
+            "living_room": {
+                "positive": "Industrial living room, concrete or brick texture (clean and refined), black steel frames, reclaimed wood, neutral palette with leather accent, large windows, directional daylight, photorealistic",
+                "negative": "Human, people, face, grungy decay, excessive cracks, dirty stains, noisy speckle, warped lines, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Industrial bedroom, matte concrete or plaster wall, metal and wood bed frame, leather accent, black fixtures, soft daylight, photorealistic",
+                "negative": "Human, people, face, dirty grunge, heavy grain, low quality, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Industrial kitchen, black steel and wood, concrete or stone countertop, stainless appliances, matte finishes, directional light, photorealistic",
+                "negative": "Human, people, face, oily gloss, grime, noisy textures, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Industrial bathroom, concrete-look porcelain (matte), black fixtures, fluted glass, clean reflections, photorealistic",
+                "negative": "Human, people, face, mold, heavy dirt, speckled noise, text, watermark"
+            }
+        },
+        "rustic": {
+            "label_fr": "Rustique",
+            "living_room": {
+                "positive": "Rustic living room, warm textured plaster (fine), natural oak beams and furniture, woven textiles, stone or wide-plank wood floor (matte), warm daylight, photorealistic",
+                "negative": "Human, people, face, excessive roughcast, dirty patina, noisy speckle, low quality, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Rustic bedroom, matte plaster walls, solid wood bed and side tables, linen and wool layers, warm daylight, photorealistic",
+                "negative": "Human, people, face, grimy, overly distressed, noisy textures, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Rustic kitchen, shaker wood cabinetry, stone or butcher-block worktop, ceramic backsplash, warm daylight, photorealistic",
+                "negative": "Human, people, face, heavy grime, plastic gloss, speckled noise, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Rustic bathroom, tumbled stone or textured porcelain (matte), aged bronze fixtures, warm daylight, photorealistic",
+                "negative": "Human, people, face, dirty stains, heavy grain, noisy texture, text, watermark"
+            }
+        },
+        "japanese": {
+            "label_fr": "Japonais",
+            "living_room": {
+                "positive": "Japanese living room, light natural wood, shoji-inspired panels, washi textures (subtle), low furniture, asymmetry, wabi-sabi restraint, neutral daylight ~5000K, soft shadows, photorealistic",
+                "negative": "Human, people, face, gaudy decor, heavy patterns, plastic gloss, noisy texture, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Japanese bedroom, light wood platform bed, tatami-inspired tones, linen and cotton, paper lamp, soft daylight, photorealistic",
+                "negative": "Human, people, face, clutter, bold patterns, speckled noise, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Japanese kitchen, light wood flat-panel cabinetry, stone or stainless worktop, minimalist hardware, clean daylight, photorealistic",
+                "negative": "Human, people, face, overdecorated, plastic shine, noisy texture, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Japanese bathroom, hinoki-inspired wood accents, stone elements, black or stainless fixtures, soft daylight, calm reflections, photorealistic",
+                "negative": "Human, people, face, overly glossy plastic, heavy grain, text, watermark"
+            }
+        },
+        "art_deco": {
+            "label_fr": "Art Déco",
+            "living_room": {
+                "positive": "Art Deco living room, geometric motifs, rich materials (velvet, brass, walnut), symmetrical composition, marble details, jewel-tone accents (emerald or navy), controlled highlights, photorealistic",
+                "negative": "Human, people, face, baroque style, rococo, kitsch, plastic gloss, noisy texture, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Art Deco bedroom, paneled headboard, walnut and brass details, velvet accent, patterned rug (geometric), warm daylight, photorealistic",
+                "negative": "Human, people, face, excessive ornament, cheap gloss, speckled noise, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Art Deco kitchen, fluted or ribbed wood, marble worktop, brass hardware, balanced symmetry, soft daylight, photorealistic",
+                "negative": "Human, people, face, overly modern minimal, plastic look, noisy texture, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Art Deco bathroom, geometric tile or checkerboard, fluted glass, brass fixtures, deep color accents, clean reflections, photorealistic",
+                "negative": "Human, people, face, baroque elements, heavy grain, plastic gloss, text, watermark"
+            }
+        },
+        "bohemian": {
+            "label_fr": "Bohème",
+            "living_room": {
+                "positive": "Bohemian living room, layered natural textiles, rattan and wood, plants, warm white walls (matte), curated eclectic decor, soft daylight, photorealistic",
+                "negative": "Human, people, face, cluttered mess, noisy grain, cartoon colors, plastic gloss, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Bohemian bedroom, linen bedding, woven throws, cane headboard, warm white walls, plants, soft daylight, photorealistic",
+                "negative": "Human, people, face, overcrowded props, harsh gloss, noisy texture, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Bohemian kitchen, open shelving with ceramics, wood counters, patterned rug (subtle), warm daylight, photorealistic",
+                "negative": "Human, people, face, visual clutter, noisy grain, plastic look, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Bohemian bathroom, handmade-look tile (matte), brass or black fixtures, plants, warm daylight, photorealistic",
+                "negative": "Human, people, face, excess patterns, speckled noise, plastic gloss, text, watermark"
+            }
+        },
+        "coastal": {
+            "label_fr": "Bord de mer",
+            "living_room": {
+                "positive": "Coastal living room, matte white walls, driftwood-tone floor, blue and sand accents, striped textiles (subtle), airy daylight, photorealistic",
+                "negative": "Human, people, face, nautical kitsch, plastic gloss, noisy texture, text, watermark"
+            },
+            "bedroom": {
+                "positive": "Coastal bedroom, crisp white walls, light wood, linen bedding, blue accents, breezy daylight, photorealistic",
+                "negative": "Human, people, face, overly themed decor, grainy noise, text, watermark"
+            },
+            "kitchen": {
+                "positive": "Coastal kitchen, white shaker cabinetry, light stone worktop, blue tile accents, bright daylight, photorealistic",
+                "negative": "Human, people, face, kitschy anchors, noisy grain, plastic look, text, watermark"
+            },
+            "bathroom": {
+                "positive": "Coastal bathroom, matte white and sea-glass tones, brushed nickel fixtures, airy daylight, clean reflections, photorealistic",
+                "negative": "Human, people, face, heavy theme decor, speckled noise, plastic gloss, text, watermark"
+            }
+        }
+    }
+}
